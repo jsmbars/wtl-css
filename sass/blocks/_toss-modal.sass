@@ -1,0 +1,307 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Modal window
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".toss-modal"
+
+#{$block}
+  position: relative !important
+  top: auto !important
+  left: auto !important
+  bottom: auto !important
+  right: auto !important
+  display: block
+  background-color: $c-bg-light
+  border-radius: 10px
+  width: 95%
+  max-width: 800px
+  margin: 100px auto 100px
+
+  &-portal &
+    z-index: 10002
+
+  // $Modal window MOD: state visible
+  &_state_visible
+    display: block
+
+  // $Modal window MOD: state hidden
+  &_state_hidden
+    display: none
+
+  &_role_service
+    max-width: 800px
+
+  &_role_action
+    max-width: 800px
+
+  &_role_info
+    max-width: 640px
+
+  &_role_notification
+    max-width: 400px
+
+
+  // $Modal window close
+  &__close
+    position: absolute
+    top: 0
+    right: 0
+    z-index: 10003
+    display: block
+    width: 40px
+    height: 40px
+    margin: 0
+    padding: 0
+    border: none
+    border-radius: 50%
+    background-color: $c-gray-extra-light
+    cursor: pointer
+    outline: none
+    transform: translate(50%, -50%)
+
+    &:after
+      content: '\e91e'
+      font-family: 'icons'
+      font-size: 18px
+      line-height: 40px
+      text-align: center
+      color: $c-text-primary
+      transition: all .3s
+
+    &:hover
+
+      &:after
+        opacity: .75
+
+    &_type_inner
+      background-color: transparent
+      top: 20px
+      right: 10px
+      transform: translate(0, 0)
+
+    &_type_light
+      color: $c-text-light
+
+
+  // $Modal window header
+  // $Modal window footer
+  &__header,
+  &__footer
+    position: relative
+    width: 100%
+    padding: 30px 20px
+    background-color: $c-bg-secondary
+
+    @media screen and (max-width: 480px)
+      padding: 30px 15px
+
+    &:only-child
+      background-color: $c-bg-light
+
+
+  // $Modal window header
+  &__header
+    border-top-right-radius: 10px
+    border-top-left-radius: 10px
+
+    #{$block}_role_service &,
+    #{$block}_role_notification &
+      text-align: center
+
+    #{$block}_role_action &,
+    #{$block}_role_info &
+      padding-right: 50px
+
+    &_color_accent-red
+      background-color: $c-accent-red
+
+    &_color_accent-green
+      background-color: $c-accent-green
+
+    &_color_accent-blue
+      background-color: $c-accent-blue
+
+    &_color_accent-yellow
+      background-color: $c-accent-yellow
+
+    &_color_accent-purple
+      background-color: $c-accent-purple
+
+    &_color_accent-pink
+      background-color: $c-accent-pink
+
+
+  &__header-group
+
+    &:not(:last-child)
+      margin-bottom: 20px
+
+
+  // $Modal window footer
+  &__footer
+    border-bottom-right-radius: 10px
+    border-bottom-left-radius: 10px
+
+
+  // $Modal window content
+  &__content
+    width: 100%
+    padding: 30px 20px
+    border-radius: 10px
+
+    @media screen and (max-width: 480px)
+      padding: 25px 15px
+
+    &_justify_center
+      text-align: center
+
+
+  // $Modal window content group
+  &__group
+    width: 100%
+
+    &:not(:last-child)
+      margin-bottom: 30px
+
+
+  // $Modal window actions
+  &__actions
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: center
+    width: 100%
+
+
+  // $Modal window action
+  &__action
+
+    &:not(:last-child)
+      margin-right: 20px
+
+
+  // $Modal window image
+  &__image
+    display: inline-block
+    width: 100%
+    max-width: 200px
+    margin-bottom: 20px
+
+
+  // $Modal window title
+  &__title
+    font-family: $f-sans
+    font-size: 24px
+    line-height: 1
+    font-weight: 400
+    color: $c-text-primary
+
+    #{$block}_role_service &
+      font-size: 30px
+      font-weight: 600
+
+    &:not(:last-child)
+      margin-bottom: 20px
+
+    #{$block}__header_color_accent-red &,
+    #{$block}__header_color_accent-green &,
+    #{$block}__header_color_accent-blue &,
+    #{$block}__header_color_accent-yellow &,
+    #{$block}__header_color_accent-purple &,
+    #{$block}__header_color_accent-pink &
+      color: $c-text-light
+
+
+  &__title-bold
+    font-weight: 600
+
+
+  &__title-light
+    font-weight: 300
+
+
+  // $Modal window subtitle
+  &__subtitle
+    font-family: $f-sans
+    font-size: 20px
+    line-height: 1.5
+    color: $c-text-secondary
+    font-weight: 400
+
+    &:not(:last-child)
+      margin-bottom: 20px
+
+  // $Modal window subtitle line
+  &__subtitle-line
+    display: block
+
+    &:not(:last-child)
+      margin-bottom: 5px
+
+
+  // $Modal window text
+  &__text
+    font-family: $f-sans
+    font-size: 14px
+    line-height: 1.5
+    color: $c-text-primary
+    font-weight: 500
+
+
+  // $Modal window link
+  &__link
+    font-family: $f-sans
+    font-size: 16px
+    line-height: 1
+    font-weight: 400
+    color: $c-text-secondary
+    text-decoration: none
+    opacity: 1
+    transition: all .3s
+
+    &:hover
+      opacity: 0.8
+
+
+  @at-root
+    // $Modal window portal
+    .ReactModalPortal,
+    &-portal
+
+      // $Modal window portal MOD: state hidden
+      &_state_hidden
+        display: none
+
+
+    // $Modal window overlay
+    .ReactModal__Overlay,
+    &-overlay
+      position: fixed !important
+      top: 0 !important
+      right: 0 !important
+      bottom: 0 !important
+      left: 0 !important
+      z-index: 10001 !important
+      display: block
+      overflow-x: hidden !important
+      overflow-y: auto !important
+      background-color: rgba(0,0,0,.75) !important
+
+
+    .ReactModal__Body--open
+      overflow: hidden
+
+
+    .ReactModal__Body--open.iosBugFixModalInput
+      position: fixed
+      overflow: visible

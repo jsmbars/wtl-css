@@ -1,0 +1,277 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Common table
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".toss-table"
+
+#{$block}
+  display: block
+  width: 100%
+  border: 1px solid $c-border-primary
+
+  // $Common table MOD: type common
+  &_type_common
+    display: table
+
+
+  // $Common table group
+  &__group
+    position: relative
+    width: 100%
+    background-color: $c-bg-light
+
+    &:nth-child(odd)
+      background-color: $c-bg-secondary
+
+
+  // $Common table row
+  &__row
+    position: relative
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: stretch
+    width: 100%
+    background-color: $c-bg-light
+
+    #{$block}_type_common &
+      display: table-row
+
+    &:nth-child(odd)
+      #{$block}_type_common &
+        background-color: $c-bg-secondary
+
+    &:not(:last-child)
+      border-bottom: 1px solid $c-border-primary
+
+    // $Common table row MOD: role header
+    &_role_header
+
+    // $Common table row MOD: adjust group
+    &_adjust_group
+      background-color: transparent
+
+      &:nth-child(odd)
+        background-color: transparent
+
+    // $Common table row MOD: adjust action
+    &_adjust_action
+      cursor: pointer
+      transition: background-color .3s
+
+      &:hover
+        background-color: lighten($c-accent-blue, 20)
+
+
+    // $Common table row MOD:  no border
+    &_no-border,
+    &_no-border:not(:last-child)
+      border: none
+
+    // $Common table row MOD: state success
+    &_state_success,
+    &_state_success:nth-child(odd),
+    &_state_success:nth-child(even),
+      background-color: lighten($c-accent-green, 40)
+
+    // $Common table row MOD: state alert
+    &_state_alert,
+    &_state_alert:nth-child(odd),
+    &_state_alert:nth-child(even)
+      background-color: lighten($c-accent-red, 20)
+
+
+  // $Common table cell
+  &__cell
+    flex-grow: 1
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: flex-start
+    min-height: 50px
+    font-family: $f-sans
+    font-size: 14px
+    font-weight: 400
+    color: $c-text-primary
+    padding: 15px 10px
+
+    #{$block}_type_common &
+      display: table-cell
+      height: 50px
+      text-align: left
+      vertical-align: middle
+      border-bottom: 1px solid $c-border-primary
+
+    #{$block}_type_common #{$block}__row:last-child &
+      border-bottom: none
+
+    &:not(:last-child)
+      border-right: 1px solid $c-border-primary
+
+    // $Common table cell first column
+    &:nth-child(1)
+
+    // $Common table cell second column
+    &:nth-child(2)
+
+    // $Common table cell third column
+    &:nth-child(3)
+
+    // $Common table cell fourth column
+    &:nth-child(4)
+
+    // $Common table cell fifth column
+    &:nth-child(5)
+
+
+    // $Common table cell MOD: role header
+    // $Common table cell MOD: role footer
+    &_role_header,
+    &_role_footer
+      font-weight: 600
+
+    &_no-border
+      &:not(:last-child)
+        border: none
+
+
+  // $Common table info
+  &__info
+    width: 100%
+
+
+  &__info-group
+    width: 100%
+
+
+  // $Common table text
+  &__text
+    font-family: $f-sans
+    font-size: 14px
+    font-weight: 400
+    color: $c-text-primary
+
+    &:before
+      display: inline-block
+      font-family: 'icons'
+      font-size: 14px
+      line-height: 14px
+      margin-right: 5px
+      color: inherit
+      vertical-align: baseline
+
+    &_icon_date
+      &:before
+        content: '\e900'
+
+    &_icon_user
+      &:before
+        content: '\e904'
+
+    &_icon_venue
+      &:before
+        content: '\e901'
+
+    // $Common table text MOD: adjust no wrap
+    &_adjust_no-wrap
+      white-space: nowrap
+
+    // $Common table text MOD: adjust wrap
+    &_adjust_wrap
+      overflow-wrap: break-word
+      word-wrap: break-word
+      word-break: break-word
+      hyphens: auto
+
+  &__text-nowrap
+    white-space: nowrap
+
+  &__text-bold
+    font-weight: 600
+
+  &__text-light
+    font-weight: 300
+
+  &__text-meta,
+  &__text-line
+    display: block
+
+    &:not(:last-child)
+      margin-bottom: 5px
+
+  &__text-meta
+    font-family: $f-sans
+    color: $c-text-secondary
+    font-size: 12px
+
+  &__text-number
+    font-size: 18px
+    font-weight: 600
+
+
+  // $Common table actions
+  &__actions
+
+
+  // $Common table action
+  &__action
+
+
+  // $Common table labels
+  &__labels
+
+
+  // $Common table label
+  &__label
+
+
+  // $Common table link
+  &__link
+    display: inline-block
+    max-width: 100%
+    font-family: $f-sans
+    font-size: 14px
+    font-weight: 400
+    color: $c-accent-blue
+    vertical-align: middle
+    text-decoration: none
+    transition: color .3s
+    cursor: pointer
+
+    &:hover,
+    &:focus
+      outline: none
+      text-decoration: underline
+      color: $c-accent-blue
+
+
+  // $Common table icon
+  &__icon
+    display: inline-block
+
+    &:after
+      content: ''
+      font-family: icons
+      font-size: 30px
+      line-height: 1
+      color: $c-gray-medium
+
+    // $Common table icon MOD: role drink
+    &_role_drink
+      &:after
+        content: '\e925'
+
+    // $Common table icon MOD: role food
+    &_role_food
+      &:after
+        content: '\e926'

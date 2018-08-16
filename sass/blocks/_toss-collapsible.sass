@@ -1,0 +1,98 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Collapsible
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".toss-collapsible"
+
+#{$block}
+  display: block
+  width: 100%
+
+
+  // $Collapsible header
+  &__header
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+
+
+  // $Collapsible label
+  &__label
+    display: inline-block
+    font-family: $f-sans
+    font-size: 16px
+    line-height: 1
+    color: $c-text-primary
+    white-space: nowrap
+    cursor: pointer
+    text-decoration: none
+
+    &:before,
+    &:after
+      content: ''
+      display: inline-block
+      font-family: icons
+      color: $c-text-primary
+
+    &:before
+      margin-right: 10px
+
+    &:after
+      margin-left: 10px
+
+    &:hover
+      color: $c-text-secondary
+
+      &:before,
+      &:after
+        color: $c-text-secondary
+
+    // $Collapsible label MOD: role filter
+    &_role_filter
+      &:before
+        content: '\e923'
+        font-size: 16px
+        line-height: 16px
+
+      &:after
+        content: '\e917'
+        font-size: 18px
+        line-height: 16px
+
+    // $Collapsible label MOD: role filter state closed
+    &_role_filter#{&}_state_closed
+      &:after
+          content: '\e918'
+
+
+  // $Collapsible extra content
+  &__extra
+    flex-grow: 1
+
+
+  // $Collapsible content
+  &__content
+
+    // $Collapsible content MOD: state closed
+    &_state_closed
+      display: none
+
+
+  // $Collapsible inner
+  &__inner
+    display: block
+    width: 100%
+    margin-top: 20px
+    padding: 20px 0
+    border-top: 1px solid $c-border-primary

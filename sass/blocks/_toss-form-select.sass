@@ -1,0 +1,570 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Common form select
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".toss-form-select"
+
+#{$block}
+  position: relative
+  display: block
+  width: 100%
+
+  // $Common form select MOD: role control
+  &_role_control
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+
+  // $Common form select MOD: role control reverse
+  &_role_control-reverse
+    display: flex
+    flex-direction: row-reverse
+    justify-content: flex-end
+    align-items: center
+
+  // $Common form select MOD: no top label
+  &_no-label
+    padding-top: 20px
+
+  // $Common form select MOD: size small
+  &_size_s
+
+  // $Common form select MOD: type narrow
+  &_type_narrow
+
+
+  // $Common form select label
+  &__label
+    display: block
+    width: 100%
+    margin-bottom: 10px
+    font-family: $f-sans
+    font-size: 14px
+    color: $c-text-primary
+    font-weight: 600
+    line-height: 1
+
+    // $Common form select label text CONTEXT: $Common form select MOD: role control
+    #{$block}_role_control &,
+    #{$block}_role_control-reverse &
+      flex-grow: 0
+      flex-shrink: 0
+      width: auto
+      margin-bottom: 0
+      font-weight: 400
+      white-space: nowrap
+
+    #{$block}_role_control &
+      margin-right: 10px
+
+    #{$block}_role_control-reverse &
+      margin-left: 10px
+
+    // $Common form select label-text CONTEXT: $Common form select MOD: type required field
+    #{$block}_type_required &
+      &:after
+        content: '*'
+        margin-left: 2px
+
+    @media screen and (max-width: 960px)
+      #{$block}_role_control &,
+      #{$block}_role_control-reverse &
+        width: 90px
+        white-space: normal
+
+    // $Common form select label MOD: adjust control fluid
+    &_adjust_control-fluid
+      @media screen and (max-width: 960px)
+        #{$block}_role_control &,
+        #{$block}_role_control-reverse &
+          width: auto
+
+    // $Common form select label MOD: adjust control wrap
+    &_adjust_control-wrap
+      #{$block}_role_control &,
+      #{$block}_role_control-reverse &
+        white-space: normal
+
+    // $Common form select label MOD: size small
+    &_size_small
+      font-size: 12px
+
+    // $Common form select label MOD: no wrap
+    &_nowrap
+      white-space: nowrap
+
+
+  // $Common form select label text
+  &__label-text
+
+
+  // $Common form select label text faded
+  &__label-text-faded
+    color: $c-text-secondary
+
+
+  // $Common form select control
+  &__control
+    position: relative
+
+    // $Common form select control MOD: adjust clear action
+    &_adjust_clear
+      padding-right: 22px
+
+    // $Common form select input CONTEXT: $Common form select MOD: role control
+    #{$block}_role_control &,
+    #{$block}_role_control-reverse &
+      flex-grow: 1
+      flex-shrink: 1
+
+    &:after
+      content: '\e919'
+      position: absolute
+      top: 50%
+      right: 13px
+      z-index: 10
+      display: block
+      font-family: icons
+      font-size: 20px
+      color: $c-text-primary
+      line-height: 1
+      transform: translateY(-50%)
+
+      #{$block}_state_error &
+        color: $c-accent-red
+
+    & select
+      display: block
+      width: 100%
+      min-height: 50px
+      padding: 13px 40px 13px 10px
+      font-family: $f-sans
+      font-size: 14px
+      color: $c-text-primary
+      font-weight: 400
+      line-height: 1.5
+      outline: none
+      border: 1px solid $c-border-primary
+      border-radius: 0
+      background: none
+      background-color: $c-bg-light
+      appearance: none
+      -moz-appearance: none
+      -webkit-appearance: none
+      transition: all .3s
+
+      #{$block}_state_error &
+        border-color: $c-accent-red
+        color: $c-accent-red
+
+      &:invalid
+        box-shadow: none
+
+      &:focus
+        outline: none
+        box-shadow: 0 0 3px -1px $c-accent-blue
+
+      &::-ms-expand
+        display: none
+
+      &:focus::-ms-value
+        background-color: transparent
+        color: $c-text-primary
+
+      &:disabled
+        background-color: $c-bg-secondary
+        cursor: not-allowed
+
+    // $Common form select option
+    & option
+      display: block
+      width: 100%
+      max-width: 100%
+      font-family: $f-sans
+      font-size: 14px
+      color: $c-text-primary
+      font-weight: 400
+      line-height: 1.5
+      outline: none
+      border: none
+
+
+  // $Common form select react select component wrap
+  &__component
+
+
+  // $Common form select note
+  &__note
+    margin-top: 10px
+    font-family: $f-sans
+    font-size: 14px
+    line-height: 1
+    color: $c-text-primary
+
+
+  // $Common form select clear
+  &__clear
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: flex-end
+    width: 22px
+    font-size: 0
+    line-height: 0
+    color: transparent
+    background-color: transparent
+    border: none
+    cursor: pointer
+    opacity: .5
+    transition: all .3s
+
+    &:before
+      content: '\e91e'
+      font-family: icons
+      font-size: 14px
+      line-height: 1
+      color: $c-text-primary
+
+    &:hover
+      opacity: 1
+
+
+  // React-select adjusments
+  & .Select-color-indicator
+    display: inline-block
+    margin-right: 5px
+    width: 10px
+    height: 10px
+    background-color: $c-gray-extra-light
+    border-radius: 50%
+
+    &_priority_high
+      background-color: $c-accent-red
+
+    &_priority_medium
+      background-color: $c-accent-yellow
+
+    &_priority_low
+      background-color: $c-accent-green
+
+    &_status_accepted,
+    &_status_completed
+      background-color: $c-accent-green
+
+    &_status_rejected,
+    &_status_deleted
+      background-color: $c-accent-red
+
+    &_status_waiting
+      background-color: $c-accent-yellow
+
+    &_status_pending
+      background-color: $c-gray-medium
+
+
+  & .Select-control
+    height: 50px
+    border-radius: 2px
+    border-color: $c-border-primary
+
+  & .Select-multi-value-wrapper
+    line-height: 48px
+
+  & .Select--multi .Select-multi-value-wrapper
+    padding: 5px 0
+    vertical-align: middle
+    line-height: 1
+
+  & .Select-placeholder,
+  & .Select--single > .Select-control .Select-value
+    line-height: 48px
+    padding-left: 20px
+    padding-right: 10px
+    color: $c-text-faded
+
+  & .has-value.Select--single > .Select-control .Select-value .Select-value-label,
+  & .has-value.is-pseudo-focused.Select--single > .Select-control .Select-value .Select-value-label
+    color: $c-text-primary
+    font-size: 14px
+
+  & .Select-input
+    vertical-align: middle
+    line-height: 1
+    height: auto
+
+    & input
+      line-height: 1
+      height: 30px
+      padding: 0
+
+  & .Select-option
+    padding: 10px 10px 10px 20px
+    font-size: 14px
+
+  & .Select--multi .Select-input
+    margin-top: 5px
+
+  & .Select--multi .Select-value
+    margin-left: 10px
+    background-color: $c-accent-green-medium
+    border: none
+    border-radius: 5px
+    line-height: 1
+    white-space: nowrap
+    direction: rtl
+    vertical-align: middle
+    color: $c-text-primary
+
+    &_color_accent-red,
+    &_color_accent-yellow,
+    &_color_accent-green,
+    &_color_accent-blue,
+    &_color_accent-purple,
+    &_color_accent-pink,
+    &_color_gray-medium
+      color: $c-text-light
+
+    &_color_accent-red
+      background-color: $c-accent-red
+
+    &_color_accent-yellow
+      background-color: $c-accent-yellow
+
+    &_color_accent-green
+      background-color: $c-accent-green
+
+    &_color_accent-blue
+      background-color: $c-accent-blue
+
+    &_color_accent-purple
+      background-color: $c-accent-purple
+
+    &_color_accent-pink
+      background-color: $c-accent-pink
+
+    &_color_gray
+      background-color: $c-gray-medium
+
+    &_color_accent-red-medium
+      background-color: $c-accent-red-medium
+
+    &_color_accent-yellow-medium
+      background-color: $c-accent-yellow-medium
+
+    &_color_accent-green-medium
+      background-color: $c-accent-green-medium
+
+    &_color_accent-blue-medium
+      background-color: $c-accent-blue-medium
+
+    &_color_accent-purple-medium
+      background-color: $c-accent-purple-medium
+
+    &_color_accent-pink-medium
+      background-color: $c-accent-pink-medium
+
+    &_color_gray-light
+      background-color: $c-gray-extra-light
+
+  & .Select--multi .Select-value-icon
+    position: relative
+    z-index: 1
+    background-color: transparent
+    border: none
+    color: $c-text-light
+    font-size: 20px
+    padding: 3px 7px 3px 8px
+    overflow: hidden
+    direction: ltr
+
+    @media screen and (max-width: 480px)
+      padding-left: 6px
+      padding-right: 5px
+
+    &:after
+      content: ""
+      z-index: -1
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      display: block
+      background-color: rgba(0,0,0,.3)
+      border-top-right-radius: 5px
+      border-bottom-right-radius: 5px
+      transition: all .3s
+
+    &:hover
+      &:after
+        background-color: rgba(0,0,0,.6)
+
+  & .Select--multi .Select-value-label
+    background-color: transparent
+    white-space: nowrap
+    text-transform: uppercase
+    color: inherit
+    border: none
+    padding: 3px 10px
+    direction: ltr
+    font-size: 12px
+
+    @media screen and (max-width: 480px)
+      font-size: 11px
+      padding: 3px 6px
+
+  & .Select-menu-outer
+    border-color: $c-border-primary
+    margin-top: 0
+    border-top: none
+
+  &_state_error
+    & .Select-control,
+    & .Select-menu-outer
+      border-color: $c-accent-red
+
+  &_state_inactive
+    position: relative
+
+    &:after
+      content: ""
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      z-index: 10
+      display: block
+      width: 100%
+      height: 100%
+      background-color: rgba(20,20,20,.2)
+
+  &_icon_time
+    & .Select-arrow
+      display: none
+
+  &_role_time
+    & .Select-placeholder,
+    & .Select--single > .Select-control .Select-value
+      padding-left: 35px
+
+      @media screen and (max-width: 640px)
+        padding-left: 10px
+
+    & .Select-option
+      padding-left: 35px
+
+      @media screen and (max-width: 640px)
+        padding-left: 10px
+
+    & .Select-input
+      padding-left: 35px
+
+      @media screen and (max-width: 640px)
+        padding-left: 10px
+
+  &_role_indicator
+
+    & .Select--multi .Select-value
+      background-color: transparent
+
+    & .Select--multi .Select-value-label
+      padding: 10px
+      color: $c-text-primary
+
+    & .Select--multi .Select-value-icon
+      display: none
+
+  &_role_staff-member
+    & .Select-control
+      height: 75px
+
+    & .Select-multi-value-wrapper
+      line-height: 73px
+
+    & .Select-placeholder,
+    & .Select--single > .Select-control .Select-value
+      line-height: 73px
+      text-overflow: clip
+
+    & .Select--single > .Select-control .Select-value .Select-value-label
+      line-height: 60px
+
+    & .Select-staff-member
+      display: inline-block
+      width: 100%
+      white-space: nowrap
+
+    & .Select-staff-member-avatar
+      display: inline-block
+      width: 50px
+      height: 50px
+      overflow: hidden
+      border-radius: 50%
+      vertical-align: middle
+
+      @media screen and (max-width: 479px)
+        width: 40px
+        height: 40px
+
+      & > img
+        display: block
+        width: 100%
+        max-width: 100%
+
+    & .Select-staff-member-info
+      display: inline-block
+      width: calc(100% - 50px)
+      padding: 0 20px 0 10px
+      vertical-align: middle
+      white-space: normal
+
+      @media screen and (max-width: 479px)
+        width: calc(100% - 40px)
+        padding-left: 5px
+
+    & .Select-staff-member-name
+      display: inline-block
+      width: 100%
+      max-width: 100%
+      font-size: 18px
+
+      @media screen and (max-width: 479px)
+        font-size: 16px
+
+    & .Select-staff-member-type
+      display: inline-block
+
+  &_type_narrow
+
+    & .Select-control
+      height: 40px
+
+    & .Select-multi-value-wrapper
+      line-height: 38px
+
+    & .Select-placeholder,
+    & .Select--single > .Select-control .Select-value
+      line-height: 38px
+
+    & .Select-input
+
+      & input
+        line-height: 1
+        height: 30px
+        padding: 0
