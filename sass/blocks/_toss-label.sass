@@ -1,0 +1,257 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Common label
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+=label-common($background-color: $c-gray-light, $color: $c-gray-dark )
+  background-color: $background-color
+  color: $color
+
+
+=label-bordered($color: $c-gray-dark, $border-color: $c-gray-light, $border-width: 2px, $border-radius: 4px, $bg-color: $c-bg-light)
+  border: $border-width solid $border-color
+  border-radius: $border-radius
+  background-color: $bg-color
+  color: $color
+
+
+=label-with-icon-left($icon: '', $icon-color: $c-text-light, $size: 18px)
+
+  &:before
+    content: '#{$icon}'
+    display: inline-block
+    margin-right: 8px
+    font-family: icons
+    font-size: $size
+    line-height: 14px
+    color: $icon-color
+    font-weight: normal
+    vertical-align: middle
+
+
+=label-with-icon-right($icon: '', $icon-color: $c-text-light, $size: 18px)
+
+  &:after
+    content: '#{$icon}'
+    display: inline-block
+    margin-left: 8px
+    font-family: icons
+    font-size: $size
+    line-height: 1
+    color: $icon-color
+    font-weight: normal
+    vertical-align: middle
+
+
+//////////////////////////////////////// Block styles
+$block: ".toss-label"
+
+#{$block}
+  $background-color: $c-gray-dark
+  $color: $c-text-light
+  +label-common($background-color: $background-color, $color: $color)
+
+  position: relative
+  display: inline-block
+  margin-bottom: 10px
+  padding: 12px 25px
+  border-radius: 4px
+  font-family: $f-sans
+  font-size: 14px
+  line-height: 1
+  font-weight: 400
+  text-decoration: none
+  vertical-align: middle
+  text-align: left
+  outline: none
+  border: none
+  overflow: hidden
+
+  &:not(:last-child)
+    margin-right: 10px
+
+  &_type_clearable
+    padding-right: 35px
+
+  &_type_sortable
+    cursor: move
+
+  // $Common label MOD: size extra large
+  &_size_xl
+    padding: 17px 35px
+
+  &_size_xl#{&}_type_clearable
+    padding-right: 85px
+
+
+  // $Common label MOD: size large
+  &_size_l
+    padding: 15px 30px
+
+  &_size_l#{&}_type_clearable
+    padding-right: 75px
+
+  // $Common label MOD: size medium
+  &_size_m
+    padding: 12px 25px
+
+  &_size_m#{&}_type_clearable
+    padding-right: 65px
+
+  // $Common label MOD: size small
+  &_size_s
+    padding: 10px 20px
+
+  &_size_s#{&}_type_clearable
+    padding-right: 55px
+
+  // $Common label MOD: size extra small
+  &_size_xs
+    padding: 7px 15px
+
+  &_size_xs#{&}_type_clearable
+    padding-right: 45px
+
+  // $Common label MOD: size 2 extra small
+  &_size_xxs
+    padding: 5px 10px
+
+  &_size_xxs#{&}_type_clearable
+    padding-right: 35px
+
+  // $Common label MOD: state visible
+  &_state_visible
+    display: inline-block
+
+  // $Common label MOD: state hidden
+  &_state_hidden
+    display: none
+
+  &_role_key
+    padding-left: 0 !important
+    padding-right: 10px !important
+    font-weight: 600
+    color: $c-gray-dark
+    background-color: transparent !important
+
+
+  // $Common label text
+  &__text
+    line-height: 1
+    vertical-align: middle
+
+
+  &__clear
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    display: block
+    vertical-align: middle
+    width: 40px
+    font-weight: 400
+    font-size: 25px
+    line-height: 1
+    color: $c-text-light
+    text-align: center
+    cursor: pointer
+    background-color: rgba(0, 0, 0, .3)
+    transition: .4s
+
+    #{$block}_size_xl &
+      width: 50px
+      font-size: 35px
+      line-height: 50px
+
+    #{$block}_size_l &
+      width: 45px
+      font-size: 30px
+      line-height: 45px
+
+    #{$block}_size_m &
+      width: 40px
+      font-size: 25px
+      line-height: 40px
+
+    #{$block}_size_s &
+      width: 35px
+      font-size: 25px
+      line-height: 35px
+
+    #{$block}_size_xs &
+      width: 30px
+      font-size: 20px
+      line-height: 30px
+
+    #{$block}_size_xxs &
+      width: 25px
+      font-size: 20px
+      line-height: 25px
+
+    &:before
+      content: "×"
+
+    &:hover
+      background-color: rgba(0, 0, 0, .6)
+
+
+  // $Common label variations:
+
+  // Color modifiers
+  &_color_accent-blue-medium
+    $background-color: $c-accent-blue-medium
+    +label-common($background-color: $background-color)
+
+  &_color_accent-red-medium
+    $background-color: $c-accent-red-medium
+    +label-common($background-color: $background-color)
+
+  &_color_accent-yellow-medium
+    $background-color: $c-accent-yellow-medium
+    +label-common($background-color: $background-color)
+
+  &_color_accent-green-medium
+    $background-color: $c-accent-green-medium
+    +label-common($background-color: $background-color)
+
+  &_color_accent-purple-medium
+    $background-color: $c-accent-purple-medium
+    +label-common($background-color: $background-color)
+
+  &_color_accent-pink-medium
+    $background-color: $c-accent-pink-medium
+    +label-common($background-color: $background-color)
+
+
+  // Border modifiers
+  &_border_accent-blue-medium
+    +label-bordered($color: $c-gray-dark, $bg-color: transparent, $border-color: $c-accent-blue-medium)
+
+  &_border_accent-red-medium
+    +label-bordered($color: $c-gray-dark, $bg-color: transparent, $border-color: $c-accent-red-medium)
+
+  &_border_accent-yellow-medium
+    +label-bordered($color: $c-gray-dark, $bg-color: transparent, $border-color: $c-accent-yellow-medium)
+
+  &_border_accent-green-medium
+    +label-bordered($color: $c-gray-dark, $bg-color: transparent, $border-color: $c-accent-green-medium)
+
+  &_border_accent-purple-medium
+    +label-bordered($color: $c-gray-dark, $bg-color: transparent, $border-color: $c-accent-purple-medium)
+
+  &_border_accent-pink-medium
+    +label-bordered($color: $c-gray-dark, $bg-color: transparent, $border-color: $c-accent-pink-medium)
+
+
+
+  // Icon modifiers
+
+
+  // Specific labels

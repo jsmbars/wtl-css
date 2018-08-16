@@ -1,0 +1,196 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Page main
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".toss-page-main"
+
+#{$block}
+  display: block
+  width: 100%
+  padding-bottom: 30px
+
+
+  // $Page main dashboard
+  // $Page main filter
+  // $Page main content
+  &__dashboard,
+  &__manager,
+  &__content
+    display: block
+    width: 100%
+    padding: 30px 40px
+
+    @media screen and (max-width: 1280px)
+      padding: 30px 40px
+
+    @media screen and (max-width: 1120px)
+      padding: 30px 35px
+
+    @media screen and (max-width: 960px)
+      padding: 30px 30px
+
+    @media screen and (max-width: 800px)
+      padding: 30px 25px
+
+    @media screen and (max-width: 640px)
+      padding: 30px 20px
+
+    @media screen and (max-width: 480px)
+      padding: 25px 15px
+
+
+  &__dashboard
+    &_role_primary
+      background-color: $c-bg-light
+
+    &_role_secondary
+      padding-bottom: 0
+
+
+  // $Page main inner container
+  &__inner
+    display: block
+    width: 100%
+    max-width: 1200px
+    margin: 0 auto
+
+
+  // $Page main info group
+  &__info-group
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    width: 100%
+
+    &:not(:last-child)
+      margin-bottom: 20px
+
+    @media screen and (max-width: 960px)
+      flex-direction: column
+      justify-content: flex-start
+
+
+  // $Page main info group controls
+  // $Page main info group actions
+  &__info-group-controls,
+  &__info-group-actions
+    flex-shrink: 0
+    display: flex
+    flex-direction: row
+    align-items: flex-start
+    justify-content: flex-start
+
+    @media screen and (max-width: 640px)
+      flex-direction: column
+      align-items: center
+
+    &:not(:last-child)
+      @media screen and (max-width: 960px)
+        margin-bottom: 20px
+
+  &__info-group-action
+
+    &:not(:last-child)
+      margin-right: 15px
+
+      @media screen and (max-width: 640px)
+        margin-right: 0
+        margin-bottom: 15px
+
+
+  // $Page main title
+  &__title
+    flex-grow: 0
+    display: block
+    max-width: 100%
+    font-family: $f-sans
+    font-size: 24px
+    font-weight: 400
+    color: $c-text-primary
+
+    @media screen and (max-width: 960px)
+      text-align: center
+
+    &:not(:last-child)
+      @media screen and (max-width: 960px)
+        margin-bottom: 20px
+
+
+  // $Page main title bold
+  &__title-bold
+    font-weight: 600
+
+
+  // $Page main title light
+  &__title-light
+    font-weight: 300
+
+
+  // $Page main title faded
+  &__title-faded
+    color: $c-text-secondary
+
+
+  // $Page dashboard title info
+  &__title-info
+    display: inline-block
+    min-width: 50px
+    height: 50px
+    margin-left: 18px
+    font-family: $f-sans
+    font-size: 14px
+    line-height: 50px
+    vertical-align: middle
+    text-align: center
+    border-radius: 50%
+    background-color: $c-accent-green
+    color: $c-text-light
+
+
+  // $Page main actions
+  &__actions
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: center
+
+    // $Page main actions MOD: position above
+    &_position_above
+      margin-bottom: 30px
+
+    // $Page main actions MOD: position below
+    &_position_below
+      margin-top: 30px
+
+
+  // $Page main action
+  &__action
+
+
+  // $Page main filter
+  &__filter
+    display: block
+    width: 100%
+
+    &:not(:last-child)
+      margin-bottom: 20px
+
+
+  // $Page main text placeholder
+  &__text-placeholder
+    font-family: $f-sans
+    font-size: 18px
+    line-height: 1
+    color: $c-text-primary
+

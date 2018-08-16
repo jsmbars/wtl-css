@@ -1,0 +1,91 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $History
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".toss-history"
+
+#{$block}
+  display: block
+  width: 100%
+
+  &:not(:last-child)
+    margin-bottom: 30px
+
+    @media screen and (max-width: 480px)
+      margin-bottom: 25px
+
+
+  // $History list
+  &__list
+    display: block
+    width: 100%
+    margin: 0
+    list-style: none
+
+
+  // $History item
+  &__item
+    position: relative
+    width: 100%
+    margin-bottom: 30px
+
+    @media screen and (max-width: 480px)
+      margin-bottom: 25px
+
+    &:before
+      content: "\e90f"
+      box-sizing: border-box
+      position: absolute
+      top: 15px
+      left: 0
+      z-index: 1
+      display: block
+      width: 20px
+      height: 30px
+      font-family: icons
+      font-size: 20px
+      line-height: 30px
+      text-align: center
+      color: $c-text-primary
+      background-color: $c-bg-light
+
+    &:after
+      content: ""
+      position: absolute
+      top: 30px
+      bottom: -60px
+      left: 10px
+      z-index: 0
+      display: block
+      width: 3px
+      margin-left: -2px
+      background-color: $c-border-secondary
+
+    &:last-child
+      margin-bottom: 0
+
+      &:after
+        display: none
+
+    // $History item MOD: icon accent red
+    &_icon_accent-red
+      &:before
+        color: $c-accent-red
+
+
+  // $History content
+  &__content
+    display: block
+    width: 100%
+    width: calc(100% - 30px)
+    margin-left: 30px
