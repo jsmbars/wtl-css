@@ -25,23 +25,6 @@ $block: ".toss-page-main"
     flex-direction: column
     justify-content: flex-start
     align-items: center
-    overflow: hidden
-
-
-  &__wrap
-    display: block
-    width: 100%
-
-    #{$block}_adjust_screen &
-      flex-grow: 1
-      flex-shrink: 1
-      display: flex
-      flex-direction: column
-      justify-content: center
-      align-items: center
-      width: 100%
-      height: 100%
-      overflow: auto
 
 
   // $Page main dashboard
@@ -84,6 +67,12 @@ $block: ".toss-page-main"
   &__content
 
     #{$block}_adjust_screen &
+      flex-grow: 1
+      flex-shrink: 1
+      display: flex
+      flex-direction: column
+      justify-content: center
+      align-items: center
       max-height: 100%
       padding-top: 0
       padding-bottom: 0
@@ -105,12 +94,13 @@ $block: ".toss-page-main"
     max-width: 1200px
     margin: 0 auto
 
-    #{$block}_adjust_screen &
+
+    #{$block}_adjust_screen #{$block}__content &
       padding-top: 30px
       padding-bottom: 30px
 
     @media screen and (max-width: 480px)
-      #{$block}_adjust_screen &
+      #{$block}_adjust_screen #{$block}__content &
         padding-top: 25px
         padding-bottom: 25px
 
