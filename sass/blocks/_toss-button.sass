@@ -156,7 +156,7 @@ $block: ".toss-button"
   &_state_disabled[disabled],
   &_state_disabled,
   &[disabled],
-    background-color: $c-gray-extra-light
+    background-color: $c-gray-extra-light !important
     cursor: not-allowed
 
     &:hover,
@@ -259,6 +259,10 @@ $block: ".toss-button"
   // $Common button MOD: icon close
   &_icon_close
     +button-with-icon-left($icon: '\e909')
+
+  // $Common button MOD: icon refresh
+  &_icon_refresh
+    +button-with-icon-left($icon: '\e906')
 
   // $Common button MOD: icon pencil
   &_icon_pencil

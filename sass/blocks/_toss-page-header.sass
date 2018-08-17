@@ -39,6 +39,10 @@ $block: ".toss-page-header"
   @media screen and (max-width: 480px)
     padding: 0 15px
 
+  &_adjust_screen
+    flex-grow: 0
+    flex-shrink: 1
+
 
   // $Page header inner container
   &__inner
@@ -52,10 +56,6 @@ $block: ".toss-page-header"
     margin: 0 auto
     padding: 10px 0
 
-    @media screen and (max-width: 480px)
-      flex-wrap: wrap
-      padding-bottom: 10px
-
 
   // $Page header group
   &__group
@@ -64,6 +64,11 @@ $block: ".toss-page-header"
     // $Page header group MOD: role logo group
     &_role_logo
       flex-grow: 1
+
+    // $Page header group MOD: role logo group with centered content
+    &_role_logo-center
+      flex-grow: 1
+      text-align: center
 
 
   // $Page header logo
@@ -82,6 +87,14 @@ $block: ".toss-page-header"
     &:hover
       text-decoration: none
       color: inherit
+
+
+  &__logo-part
+    display: inline-block
+
+
+  &__logo-faded
+    color: $c-text-secondary
 
 
   // $Page header action
