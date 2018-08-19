@@ -24,8 +24,8 @@ $block: ".toss-modal"
   background-color: $c-bg-light
   border-radius: 10px
   width: 95%
-  max-width: 800px
-  margin: 100px auto 100px
+  max-width: 960px
+  margin: 0 auto
 
   &-portal &
     z-index: 10002
@@ -38,24 +38,78 @@ $block: ".toss-modal"
   &_state_hidden
     display: none
 
-  &_role_service
-    max-width: 800px
+  &_size_xs
+    max-width: 400px
 
-  &_role_action
-    max-width: 800px
+  &_size_s-minor
+    max-width: 480px
 
-  &_role_info
+  &_size_s-major
     max-width: 640px
 
-  &_role_notification
-    max-width: 400px
+  &_size_m-minor
+    max-width: 800px
+
+  &_size_m-major
+    max-width: 960px
+
+  &_size_l-minor
+    max-width: 1120px
+
+  &_size_l-major
+    max-width: 1280px
+
+  &_space_s
+    margin-top: 50px
+    margin-bottom: 50px
+
+    @media screen and (max-width: 640px), screen and (max-height: 640px)
+      margin-top: 25px
+      margin-bottom: 25px
+
+  &_space_m
+    margin-top: 100px
+    margin-bottom: 100px
+
+    @media screen and (max-width: 640px), screen and (max-height: 640px)
+      margin-top: 50px
+      margin-bottom: 50px
+
+    @media screen and (max-width: 480px), screen and (max-height: 480px)
+      margin-top: 25px
+      margin-bottom: 25px
+
+  &_space_l
+    margin-top: 200px
+    margin-bottom: 200px
+
+  &_type_full-height
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: center
+    height: 100%
+    max-height: calc(100vh - 200px)
+    margin-top: 100px
+    margin-bottom: 100px
+    overflow: hidden
+
+    @media screen and (max-width: 640px), screen and (max-height: 640px)
+      max-height: calc(100vh - 100px)
+      margin-top: 50px
+      margin-bottom: 50px
+
+    @media screen and (max-width: 480px), screen and (max-height: 480px)
+      max-height: calc(100vh - 50px)
+      margin-top: 25px
+      margin-bottom: 25px
 
 
   // $Modal window close
   &__close
     position: absolute
-    top: 0
-    right: 0
+    top: 20px
+    right: 10px
     z-index: 10003
     display: block
     width: 40px
@@ -64,10 +118,9 @@ $block: ".toss-modal"
     padding: 0
     border: none
     border-radius: 50%
-    background-color: $c-gray-extra-light
+    background-color: transparent
     cursor: pointer
     outline: none
-    transform: translate(50%, -50%)
 
     &:after
       content: '\e91e'
@@ -79,18 +132,12 @@ $block: ".toss-modal"
       transition: all .3s
 
     &:hover
-
       &:after
         opacity: .75
 
-    &_type_inner
-      background-color: transparent
-      top: 20px
-      right: 10px
-      transform: translate(0, 0)
-
     &_type_light
-      color: $c-text-light
+      &:after
+        color: $c-text-light
 
 
   // $Modal window header
@@ -100,10 +147,15 @@ $block: ".toss-modal"
     position: relative
     width: 100%
     padding: 30px 20px
-    background-color: $c-bg-secondary
+    background-color: $c-gray-ultra-light
 
-    @media screen and (max-width: 480px)
-      padding: 30px 15px
+    #{$block}_type_full-height &
+      flex-grow: 0
+      flex-shrink: 0
+
+    @media screen and (max-width: 480px), screen and (max-height: 480px)
+      padding: 20px 15px
+
 
     &:only-child
       background-color: $c-bg-light
@@ -114,13 +166,11 @@ $block: ".toss-modal"
     border-top-right-radius: 10px
     border-top-left-radius: 10px
 
-    #{$block}_role_service &,
-    #{$block}_role_notification &
-      text-align: center
-
-    #{$block}_role_action &,
-    #{$block}_role_info &
+    &_adjust_close
       padding-right: 50px
+
+    &_justify_center
+      text-align: center
 
     &_color_accent-red
       background-color: $c-accent-red
@@ -152,6 +202,9 @@ $block: ".toss-modal"
     border-bottom-right-radius: 10px
     border-bottom-left-radius: 10px
 
+    &_justify_center
+      text-align: center
+
 
   // $Modal window content
   &__content
@@ -159,11 +212,29 @@ $block: ".toss-modal"
     padding: 30px 20px
     border-radius: 10px
 
-    @media screen and (max-width: 480px)
-      padding: 25px 15px
+    #{$block}_type_full-height &
+      flex-grow: 1
+      flex-shrink: 1
+      display: flex
+      flex-direction: column
+      justify-content: flex-start
+      align-items: stretch
+      overflow: hidden
+
+    @media screen and (max-width: 480px), screen and (max-height: 480px)
+      padding: 20px 15px
 
     &_justify_center
       text-align: center
+
+
+  &__scroll
+    flex-grow: 1
+    flex-shrink: 1
+    display: block
+    width: 100%
+    max-height: 100%
+    overflow: auto
 
 
   // $Modal window content group
@@ -197,6 +268,12 @@ $block: ".toss-modal"
     max-width: 200px
     margin-bottom: 20px
 
+    &_size_s
+      max-width: 150px
+
+    &_size_l
+      max-width: 250px
+
 
   // $Modal window title
   &__title
@@ -206,9 +283,11 @@ $block: ".toss-modal"
     font-weight: 400
     color: $c-text-primary
 
-    #{$block}_role_service &
-      font-size: 30px
-      font-weight: 600
+    &_size_s
+      font-size: 20px
+
+    &_size_l
+      font-size: 28px
 
     &:not(:last-child)
       margin-bottom: 20px
@@ -222,10 +301,12 @@ $block: ".toss-modal"
       color: $c-text-light
 
 
+  // $Modal window title bold
   &__title-bold
     font-weight: 600
 
 
+  // $Modal window title light
   &__title-light
     font-weight: 300
 
@@ -240,6 +321,17 @@ $block: ".toss-modal"
 
     &:not(:last-child)
       margin-bottom: 20px
+
+
+  // $Modal window subtitle bold
+  &__subtitle-bold
+    font-weight: 600
+
+
+  // $Modal window subtitle light
+  &__subtitle-light
+    font-weight: 300
+
 
   // $Modal window subtitle line
   &__subtitle-line
@@ -264,13 +356,21 @@ $block: ".toss-modal"
     font-size: 16px
     line-height: 1
     font-weight: 400
-    color: $c-text-secondary
+    color: $c-accent-blue
     text-decoration: none
     opacity: 1
     transition: all .3s
 
     &:hover
       opacity: 0.8
+
+    &_role_inline
+      font-size: inherit
+      text-decoration: underline
+
+      &:hover
+        text-decoration: none
+        opacity: 1
 
 
   @at-root
