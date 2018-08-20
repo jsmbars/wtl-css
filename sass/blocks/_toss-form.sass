@@ -49,22 +49,23 @@ $block: ".toss-form"
     &_size_third,
     &_size_fourth,
     &_size_max,
-    &_size_min,
-    &_size_max-fluid,
-    &_size_min-fluid
+    &_size_min
       margin-right: 30px
       margin-bottom: 0
 
       @media screen and (max-width: 960px)
 
-        &:not(#{$block}__field_adjust_nowrap)
+        &:not(#{$block}__group_adjust_nowrap)
+          flex-shrink: 1
+          flex-grow: 1
+          width: 100%
           margin-right: 0
           margin-bottom: 30px
 
       @media screen and (max-width: 480px)
         margin-right: 25px
 
-        &:not(#{$block}__field_adjust_nowrap)
+        &:not(#{$block}__group_adjust_nowrap)
           margin-right: 0
           margin-bottom: 25px
 
@@ -73,27 +74,15 @@ $block: ".toss-form"
       flex-shrink: 1
       width: 50%
 
-      @media screen and (max-width: 960px)
-        flex-grow: 1
-        width: 100%
-
     &_size_third
       flex-grow: 0
       flex-shrink: 1
       width: 33%
 
-      @media screen and (max-width: 960px)
-        flex-grow: 1
-        width: 100%
-
     &_size_fourth
       flex-grow: 0
       flex-shrink: 1
       width: 25%
-
-      @media screen and (max-width: 960px)
-        flex-grow: 1
-        width: 100%
 
     &_size_max
       flex-grow: 1
@@ -105,30 +94,13 @@ $block: ".toss-form"
       flex-shrink: 1
       width: auto
 
-    &_size_max-fluid
-      flex-grow: 1
-      flex-shrink: 1
-      width: auto
-
-      @media screen and (max-width: 960px)
-        width: 100%
-
-    &_size_min-fluid
-      flex-grow: 0
-      flex-shrink: 1
-      width: auto
-
-      @media screen and (max-width: 960px)
-        flex-grow: 1
-        width: 100%
-
     // $Common form group MOD: position last
     &_position_last
       margin-right: 0
       margin-bottom: 0
 
       @media screen and (max-width: 960px)
-        &:not(#{$block}__field_adjust_nowrap)
+        &:not(#{$block}__group_adjust_nowrap)
           margin-right: 0
           margin-bottom: 0
 
@@ -211,8 +183,7 @@ $block: ".toss-form"
     &_size_fifth,
     &_size_sixth,
     &_size_max,
-    &_size_min,
-    &_size_fluid
+    &_size_min
       margin-right: 30px
       margin-bottom: 0
 
@@ -274,17 +245,9 @@ $block: ".toss-form"
       flex-shrink: 1
       width: auto
 
-      @media screen and (max-width: 960px)
-        width: 50%
-
     &_size_min
       flex-grow: 0
       flex-shrink: 1
-      width: auto
-
-    &_size_fluid
-      flex-grow: 0
-      flex-shrink: 0
       width: auto
 
     // $Common form field: MOD: position last

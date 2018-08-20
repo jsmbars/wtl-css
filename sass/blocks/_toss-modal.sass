@@ -283,15 +283,6 @@ $block: ".toss-modal"
     font-weight: 400
     color: $c-text-primary
 
-    &_size_s
-      font-size: 20px
-
-    &_size_l
-      font-size: 28px
-
-    &:not(:last-child)
-      margin-bottom: 20px
-
     #{$block}__header_color_accent-red &,
     #{$block}__header_color_accent-green &,
     #{$block}__header_color_accent-blue &,
@@ -299,6 +290,15 @@ $block: ".toss-modal"
     #{$block}__header_color_accent-purple &,
     #{$block}__header_color_accent-pink &
       color: $c-text-light
+
+    &:not(:last-child)
+      margin-bottom: 20px
+
+    &_size_s
+      font-size: 20px
+
+    &_size_l
+      font-size: 28px
 
 
   // $Modal window title bold
@@ -321,6 +321,12 @@ $block: ".toss-modal"
 
     &:not(:last-child)
       margin-bottom: 20px
+
+    &_size_s
+      font-size: 18px
+
+    &_size_l
+      font-size: 22px
 
 
   // $Modal window subtitle bold

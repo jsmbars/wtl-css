@@ -22,7 +22,6 @@ $block: ".toss-panel"
   overflow: hidden
   background-color: $c-bg-light
   border-radius: 10px
-  box-shadow: 0 5px 15px 0 $c-shadow-secondary
 
   &:not(:last-child)
     margin-bottom: 30px
@@ -67,6 +66,16 @@ $block: ".toss-panel"
     border-radius: 0
     box-shadow: 0px 2px 8px 0 $c-shadow-secondary
 
+  &_role_board-group
+    box-shadow: 0 5px 15px 0 $c-shadow-secondary
+
+  &_page_clients-index
+
+  &_page_clients-profile
+    border-radius: 0
+
+  &_page_clients-profile-history
+
 
   // $Panel header
   &__header
@@ -99,9 +108,9 @@ $block: ".toss-panel"
       @media screen and (max-width: 480px)
         padding-right: 30px
 
-    // $Panel header MOD: marked
-    &_marked
-      background-color: $c-gray-ultra-light
+    // $Panel header MOD: type marked
+    &_type_marked
+      background-color: $c-gray-hyper-light
 
 
   // $Panel header group
@@ -203,6 +212,25 @@ $block: ".toss-panel"
     display: block
     width: 100%
 
+    &:not(:last-child)
+      border-bottom: 1px solid $c-border-primary
+
+    &_type_no-border,
+    &_type_no-border:not(:last-child)
+      border-bottom: none
+
+    &_type_marked
+      background-color: $c-gray-hyper-light
+
+      #{$block}_highlight_blue &,
+      #{$block}_highlight_red &,
+      #{$block}_highlight_yellow &,
+      #{$block}_highlight_green &,
+      #{$block}_highlight_purple &,
+      #{$block}_highlight_pink &,
+      #{$block}_highlight_gray &
+        background-color: transparent
+
 
   // $Panel group content
   &__group-content
@@ -223,6 +251,10 @@ $block: ".toss-panel"
     &:not(:last-child)
       border-bottom: 1px solid $c-border-primary
 
+    &_type_no-border,
+    &_type_no-border:not(:last-child)
+      border-bottom: none
+
     // $Panel row MOD: marked
     &_type_marked
       background-color: $c-gray-hyper-light
@@ -232,7 +264,8 @@ $block: ".toss-panel"
       #{$block}_highlight_yellow &,
       #{$block}_highlight_green &,
       #{$block}_highlight_purple &,
-      #{$block}_highlight_pink &
+      #{$block}_highlight_pink &,
+      #{$block}_highlight_gray &
         background-color: transparent
 
 
@@ -305,7 +338,6 @@ $block: ".toss-panel"
   &__info-list
     display: block
     width: 100%
-    padding: 10px 0
 
 
   // $panel info item
@@ -341,9 +373,9 @@ $block: ".toss-panel"
   // $Panel actions
   &__actions
     display: flex
-    flex-direction: column
-    justify-content: flex-start
-    align-items: center
+    flex-direction: row
+    justify-content: center
+    align-items: flex-start
 
     // $Panel actions MOD: position above
     &_position_above
@@ -356,6 +388,8 @@ $block: ".toss-panel"
 
   // $Panel action
   &__action
+    &:not(:last-child)
+      margin-right: 15px
 
 
   // $Panel labels
@@ -419,6 +453,10 @@ $block: ".toss-panel"
     line-height: 1.2
     font-weight: 600
     color: $c-text-primary
+
+    #{$block}_page_clients-profile &,
+    #{$block}_page_clients-index &
+      text-align: center
 
     &:before
       font-size: 18px
@@ -565,6 +603,31 @@ $block: ".toss-panel"
       @media screen and (max-width: 960px)
         margin-right: 0
         margin-bottom: 15px
+
+
+  // $Panel list
+  &__list
+    display: block
+    width: 100%
+    list-style: none
+
+
+  // $Panel list item
+  &__list-item
+    position: relative
+    display: block
+    width: 100%
+    padding-left: 15px
+
+    &:before
+      content: "-"
+      position: absolute
+      left: 0
+      top: 0
+      display: inline-block
+
+    &:not(:last-child)
+      margin-bottom: 15px
 
 
   // $Panel text placeholder

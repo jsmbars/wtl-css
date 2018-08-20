@@ -26,6 +26,9 @@ $block: ".toss-collapsible"
     justify-content: space-between
     align-items: center
 
+    @media screen and (max-width: 960px)
+      justify-content: center
+
 
   // $Collapsible label
   &__label
@@ -94,5 +97,5 @@ $block: ".toss-collapsible"
     display: block
     width: 100%
     margin-top: 20px
-    padding: 20px 0
+    padding-top: 20px
     border-top: 1px solid $c-border-primary

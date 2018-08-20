@@ -32,6 +32,8 @@ $block: ".toss-form-interval"
     justify-content: flex-end
     align-items: center
 
+  &_adjust_wrap-xs
+
 
   // $Common form interval label
   &__label
@@ -84,6 +86,11 @@ $block: ".toss-form-interval"
     justify-content: flex-start
     align-items: flex-end
 
+    @media screen and (max-width: 400px)
+      #{$block}_adjust_wrap-xs &
+        flex-direction: column
+        align-items: flex-start
+
     // $Common form interval range MOD: adjust clear action
     &_adjust_clear
       padding-right: 22px
@@ -95,6 +102,11 @@ $block: ".toss-form-interval"
     flex-shrink: 1
     width: 100%
 
+    &:first-child
+      @media screen and (max-width: 400px)
+        #{$block}_adjust_wrap-xs &
+          margin-bottom: 15px
+
 
   // $Common form interval delimiter
   &__delimiter
@@ -104,6 +116,10 @@ $block: ".toss-form-interval"
     display: block
     width: 30px
     height: 45px
+
+    @media screen and (max-width: 400px)
+      #{$block}_adjust_wrap-xs &
+        display: none
 
     &:after
       content: ""

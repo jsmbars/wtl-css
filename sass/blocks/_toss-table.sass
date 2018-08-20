@@ -19,9 +19,17 @@ $block: ".toss-table"
   width: 100%
   border: 1px solid $c-border-primary
 
+  &:not(:last-child)
+    margin-bottom: 30px
+
+    @media screen and (max-width: 480px)
+      margin-bottom: 25px
+
   // $Common table MOD: type common
   &_type_common
     display: table
+
+  &_page_clients-index
 
 
   // $Common table group
@@ -31,7 +39,36 @@ $block: ".toss-table"
     background-color: $c-bg-light
 
     &:nth-child(odd)
-      background-color: $c-bg-secondary
+      #{$block}_type_common &
+        background-color: $c-bg-secondary
+
+    // $Common table group MOD: highlight blue
+    &_highlight_accent-blue
+      background-color: $c-accent-blue-light
+
+    // $Common table group MOD: highlight red
+    &_highlight_accent-red
+      background-color: $c-accent-red-light
+
+    // $Common table group MOD: highlight yellow
+    &_highlight_accent-yellow
+      background-color: $c-accent-yellow-light
+
+    // $Common table group MOD: highlight green
+    &_highlight_accent-green
+      background-color: $c-accent-green-light
+
+    // $Common table group MOD: highlight purple
+    &_highlight_accent-purple
+      background-color: $c-accent-purple-light
+
+    // $Common table group MOD: highlight pink
+    &_highlight_accent-pink
+      background-color: $c-accent-pink-light
+
+    // $Common table group MOD: highlight gray
+    &_highlight_gray
+      background-color: $c-gray-ultra-light
 
 
   // $Common table row
@@ -78,17 +115,33 @@ $block: ".toss-table"
     &_no-border:not(:last-child)
       border: none
 
-    // $Common table row MOD: state success
-    &_state_success,
-    &_state_success:nth-child(odd),
-    &_state_success:nth-child(even),
-      background-color: lighten($c-accent-green, 40)
+    // $Common table row MOD: highlight blue
+    &_highlight_accent-blue
+      background-color: $c-accent-blue-light
 
-    // $Common table row MOD: state alert
-    &_state_alert,
-    &_state_alert:nth-child(odd),
-    &_state_alert:nth-child(even)
-      background-color: lighten($c-accent-red, 20)
+    // $Common table row MOD: highlight red
+    &_highlight_accent-red
+      background-color: $c-accent-red-light
+
+    // $Common table row MOD: highlight yellow
+    &_highlight_accent-yellow
+      background-color: $c-accent-yellow-light
+
+    // $Common table row MOD: highlight green
+    &_highlight_accent-green
+      background-color: $c-accent-green-light
+
+    // $Common table row MOD: highlight purple
+    &_highlight_accent-purple
+      background-color: $c-accent-purple-light
+
+    // $Common table row MOD: highlight pink
+    &_highlight_accent-pink
+      background-color: $c-accent-pink-light
+
+    // $Common table row MOD: highlight gray
+    &_highlight_gray
+      background-color: $c-gray-ultra-light
 
 
   // $Common table cell
@@ -120,15 +173,26 @@ $block: ".toss-table"
 
     // $Common table cell first column
     &:nth-child(1)
+      #{$block}_page_clients-index &
+        width: 30%
 
     // $Common table cell second column
     &:nth-child(2)
+      #{$block}_page_clients-index &
+        width: 20%
+        align-items: center
 
     // $Common table cell third column
     &:nth-child(3)
+      #{$block}_page_clients-index &
+        width: 30%
+        align-items: center
 
     // $Common table cell fourth column
     &:nth-child(4)
+      #{$block}_page_clients-index &
+        width: 20%
+        align-items: center
 
     // $Common table cell fifth column
     &:nth-child(5)
@@ -160,6 +224,10 @@ $block: ".toss-table"
     font-size: 14px
     font-weight: 400
     color: $c-text-primary
+
+    #{$block}_page_clients-index #{$block}__cell:nth-child(2) &,
+    #{$block}_page_clients-index #{$block}__cell:nth-child(4) &
+      text-align: center
 
     &:before
       display: inline-block
@@ -229,6 +297,9 @@ $block: ".toss-table"
 
   // $Common table labels
   &__labels
+
+    #{$block}_page_clients-index #{$block}__cell:nth-child(3) &
+      text-align: center
 
 
   // $Common table label
