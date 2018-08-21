@@ -78,6 +78,8 @@ $block: ".toss-panel"
 
   &_page_cards-index
 
+  &_page_users-index
+
 
   // $Panel header
   &__header
@@ -459,6 +461,10 @@ $block: ".toss-panel"
       &:before
         content: '\e926'
 
+    &_icon_email
+      &:before
+        content: '\e91f'
+
     &:not(:last-child)
       margin-bottom: 5px
 
@@ -485,7 +491,8 @@ $block: ".toss-panel"
     color: $c-text-primary
 
     #{$block}_page_clients-profile &,
-    #{$block}_page_clients-index &
+    #{$block}_page_clients-index &,
+    #{$block}_page_users-index &
       text-align: center
 
     @media screen and (max-width: 640px)

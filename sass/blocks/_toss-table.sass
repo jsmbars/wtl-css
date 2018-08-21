@@ -31,6 +31,8 @@ $block: ".toss-table"
 
   &_page_clients-index
 
+  &_page_users-index
+
 
   // $Common table group
   &__group
@@ -176,11 +178,17 @@ $block: ".toss-table"
       #{$block}_page_clients-index &
         width: 30%
 
+      #{$block}_page_users-index &
+        width: 30%
+
     // $Common table cell second column
     &:nth-child(2)
       #{$block}_page_clients-index &
         width: 20%
         align-items: center
+
+      #{$block}_page_users-index &
+        width: 30%
 
     // $Common table cell third column
     &:nth-child(3)
@@ -188,9 +196,17 @@ $block: ".toss-table"
         width: 30%
         align-items: center
 
+      #{$block}_page_users-index &
+        width: 20%
+        align-items: center
+
     // $Common table cell fourth column
     &:nth-child(4)
       #{$block}_page_clients-index &
+        width: 20%
+        align-items: center
+
+      #{$block}_page_users-index &
         width: 20%
         align-items: center
 
@@ -289,6 +305,8 @@ $block: ".toss-table"
 
   // $Common table actions
   &__actions
+    #{$block}_page_users-index #{$block}__cell:nth-child(4) &
+      text-align: center
 
 
   // $Common table action
@@ -298,7 +316,8 @@ $block: ".toss-table"
   // $Common table labels
   &__labels
 
-    #{$block}_page_clients-index #{$block}__cell:nth-child(3) &
+    #{$block}_page_clients-index #{$block}__cell:nth-child(3) &,
+    #{$block}_page_users-index #{$block}__cell:nth-child(3) &
       text-align: center
 
 
