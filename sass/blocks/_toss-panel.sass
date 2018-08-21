@@ -76,6 +76,8 @@ $block: ".toss-panel"
 
   &_page_clients-profile-history
 
+  &_page_cards-index
+
 
   // $Panel header
   &__header
@@ -90,6 +92,10 @@ $block: ".toss-panel"
 
     #{$block}_role_manager &
       border-color: $c-border-secondary
+
+    @media screen and (max-width: 640px)
+      #{$block}_page_cards-index &
+        flex-wrap: wrap
 
     @media screen and (max-width: 480px)
       padding: 20px 15px
@@ -130,6 +136,13 @@ $block: ".toss-panel"
     flex-grow: 1
     flex-shrink: 1
     display: block
+
+    @media screen and (max-width: 640px)
+      #{$block}_page_cards-index &
+        width: 100%
+        padding-bottom: 15px
+        margin-bottom: 15px
+        border-bottom: 1px solid $c-border-secondary
 
 
   // $Panel header meta
@@ -175,6 +188,23 @@ $block: ".toss-panel"
   &__header-actions
     flex-grow: 0
     flex-shrink: 0
+
+    #{$block}_page_cards-index &
+      display: flex
+      flex-direction: row
+      justify-content: center
+      align-items: center
+
+    @media screen and (max-width: 640px)
+      #{$block}_page_cards-index &
+        width: 100%
+
+
+  &__header-action
+    &:not(:last-child)
+      #{$block}_page_cards-index &
+        margin-right: 15px
+
 
 
   // $Panel header toggle
@@ -457,6 +487,10 @@ $block: ".toss-panel"
     #{$block}_page_clients-profile &,
     #{$block}_page_clients-index &
       text-align: center
+
+    @media screen and (max-width: 640px)
+      #{$block}_page_cards-index &
+        text-align: center
 
     &:before
       font-size: 18px
