@@ -26,6 +26,10 @@ $block: ".toss-collapsible"
     justify-content: space-between
     align-items: center
 
+    @media screen and (max-width: 960px)
+      flex-direction: column
+      justify-content: flex-start
+
 
   // $Collapsible label
   &__label
@@ -80,6 +84,23 @@ $block: ".toss-collapsible"
   &__extra
     flex-grow: 1
 
+  &__label + #{&}__extra
+    padding-left: 20px
+
+    @media screen and (max-width: 960px)
+      order: -99
+      padding-left: 0
+      padding-bottom: 20px
+
+  &__extra + #{&}__label
+    padding-left: 20px
+
+    @media screen and (max-width: 960px)
+      order: 99
+      padding-left: 0
+      padding-top: 20px
+
+
 
   // $Collapsible content
   &__content
@@ -94,5 +115,5 @@ $block: ".toss-collapsible"
     display: block
     width: 100%
     margin-top: 20px
-    padding: 20px 0
+    padding-top: 20px
     border-top: 1px solid $c-border-primary

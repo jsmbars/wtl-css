@@ -22,7 +22,6 @@ $block: ".toss-panel"
   overflow: hidden
   background-color: $c-bg-light
   border-radius: 10px
-  box-shadow: 0 5px 15px 0 $c-shadow-secondary
 
   &:not(:last-child)
     margin-bottom: 30px
@@ -67,6 +66,20 @@ $block: ".toss-panel"
     border-radius: 0
     box-shadow: 0px 2px 8px 0 $c-shadow-secondary
 
+  &_role_board-group
+    box-shadow: 0 5px 15px 0 $c-shadow-secondary
+
+  &_page_clients-index
+
+  &_page_clients-profile
+    border-radius: 0
+
+  &_page_clients-profile-history
+
+  &_page_cards-index
+
+  &_page_users-index
+
 
   // $Panel header
   &__header
@@ -81,6 +94,10 @@ $block: ".toss-panel"
 
     #{$block}_role_manager &
       border-color: $c-border-secondary
+
+    @media screen and (max-width: 640px)
+      #{$block}_page_cards-index &
+        flex-wrap: wrap
 
     @media screen and (max-width: 480px)
       padding: 20px 15px
@@ -99,9 +116,9 @@ $block: ".toss-panel"
       @media screen and (max-width: 480px)
         padding-right: 30px
 
-    // $Panel header MOD: marked
-    &_marked
-      background-color: $c-gray-ultra-light
+    // $Panel header MOD: type marked
+    &_type_marked
+      background-color: $c-gray-hyper-light
 
 
   // $Panel header group
@@ -121,6 +138,13 @@ $block: ".toss-panel"
     flex-grow: 1
     flex-shrink: 1
     display: block
+
+    @media screen and (max-width: 640px)
+      #{$block}_page_cards-index &
+        width: 100%
+        padding-bottom: 15px
+        margin-bottom: 15px
+        border-bottom: 1px solid $c-border-secondary
 
 
   // $Panel header meta
@@ -167,6 +191,23 @@ $block: ".toss-panel"
     flex-grow: 0
     flex-shrink: 0
 
+    #{$block}_page_cards-index &
+      display: flex
+      flex-direction: row
+      justify-content: center
+      align-items: center
+
+    @media screen and (max-width: 640px)
+      #{$block}_page_cards-index &
+        width: 100%
+
+
+  &__header-action
+    &:not(:last-child)
+      #{$block}_page_cards-index &
+        margin-right: 15px
+
+
 
   // $Panel header toggle
   &__header-toggle
@@ -203,6 +244,25 @@ $block: ".toss-panel"
     display: block
     width: 100%
 
+    &:not(:last-child)
+      border-bottom: 1px solid $c-border-primary
+
+    &_type_no-border,
+    &_type_no-border:not(:last-child)
+      border-bottom: none
+
+    &_type_marked
+      background-color: $c-gray-hyper-light
+
+      #{$block}_highlight_blue &,
+      #{$block}_highlight_red &,
+      #{$block}_highlight_yellow &,
+      #{$block}_highlight_green &,
+      #{$block}_highlight_purple &,
+      #{$block}_highlight_pink &,
+      #{$block}_highlight_gray &
+        background-color: transparent
+
 
   // $Panel group content
   &__group-content
@@ -223,6 +283,10 @@ $block: ".toss-panel"
     &:not(:last-child)
       border-bottom: 1px solid $c-border-primary
 
+    &_type_no-border,
+    &_type_no-border:not(:last-child)
+      border-bottom: none
+
     // $Panel row MOD: marked
     &_type_marked
       background-color: $c-gray-hyper-light
@@ -232,7 +296,8 @@ $block: ".toss-panel"
       #{$block}_highlight_yellow &,
       #{$block}_highlight_green &,
       #{$block}_highlight_purple &,
-      #{$block}_highlight_pink &
+      #{$block}_highlight_pink &,
+      #{$block}_highlight_gray &
         background-color: transparent
 
 
@@ -305,7 +370,6 @@ $block: ".toss-panel"
   &__info-list
     display: block
     width: 100%
-    padding: 10px 0
 
 
   // $panel info item
@@ -341,9 +405,9 @@ $block: ".toss-panel"
   // $Panel actions
   &__actions
     display: flex
-    flex-direction: column
-    justify-content: flex-start
-    align-items: center
+    flex-direction: row
+    justify-content: center
+    align-items: flex-start
 
     // $Panel actions MOD: position above
     &_position_above
@@ -356,6 +420,8 @@ $block: ".toss-panel"
 
   // $Panel action
   &__action
+    &:not(:last-child)
+      margin-right: 15px
 
 
   // $Panel labels
@@ -395,6 +461,10 @@ $block: ".toss-panel"
       &:before
         content: '\e926'
 
+    &_icon_email
+      &:before
+        content: '\e91f'
+
     &:not(:last-child)
       margin-bottom: 5px
 
@@ -419,6 +489,15 @@ $block: ".toss-panel"
     line-height: 1.2
     font-weight: 600
     color: $c-text-primary
+
+    #{$block}_page_clients-profile &,
+    #{$block}_page_clients-index &,
+    #{$block}_page_users-index &
+      text-align: center
+
+    @media screen and (max-width: 640px)
+      #{$block}_page_cards-index &
+        text-align: center
 
     &:before
       font-size: 18px
@@ -448,6 +527,18 @@ $block: ".toss-panel"
   &__title-light
     font-weight: 300
 
+
+  // $Panel title link
+  &__title-link
+    font-family: inherit
+    font-size: inherit
+    color: inherit
+    text-decoration: none
+
+    &:hover
+      text-decoration: underline
+
+
   // $Panel text
   &__text
     display: block
@@ -476,6 +567,17 @@ $block: ".toss-panel"
   // $Panel text light
   &__text-light
     font-weight: 300
+
+
+  // $Panel text link
+  &__text-link
+    font-family: inherit
+    font-size: inherit
+    color: inherit
+    text-decoration: none
+
+    &:hover
+      text-decoration: underline
 
 
   // $Panel link
@@ -565,6 +667,31 @@ $block: ".toss-panel"
       @media screen and (max-width: 960px)
         margin-right: 0
         margin-bottom: 15px
+
+
+  // $Panel list
+  &__list
+    display: block
+    width: 100%
+    list-style: none
+
+
+  // $Panel list item
+  &__list-item
+    position: relative
+    display: block
+    width: 100%
+    padding-left: 15px
+
+    &:before
+      content: "-"
+      position: absolute
+      left: 0
+      top: 0
+      display: inline-block
+
+    &:not(:last-child)
+      margin-bottom: 15px
 
 
   // $Panel text placeholder

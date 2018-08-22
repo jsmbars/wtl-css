@@ -205,49 +205,93 @@ $block: ".toss-label"
   // $Common label variations:
 
   // Color modifiers
+  &_color_accent-blue
+    +label-common($background-color: $c-accent-blue, $color: $c-text-light)
+
+  &_color_accent-red
+    +label-common($background-color: $c-accent-red, $color: $c-text-light)
+
+  &_color_accent-yellow
+    +label-common($background-color: $c-accent-yellow, $color: $c-text-light)
+
+  &_color_accent-green
+    +label-common($background-color: $c-accent-green, $color: $c-text-light)
+
+  &_color_accent-purple
+    +label-common($background-color: $c-accent-purple, $color: $c-text-light)
+
+  &_color_accent-pink
+    +label-common($background-color: $c-accent-pink, $color: $c-text-light)
+
+  &_color_gray
+    +label-common($background-color: $c-gray-medium, $color: $c-text-light)
+
+
   &_color_accent-blue-medium
-    $background-color: $c-accent-blue-medium
-    +label-common($background-color: $background-color)
+    +label-common($background-color: $c-accent-blue-medium)
 
   &_color_accent-red-medium
-    $background-color: $c-accent-red-medium
-    +label-common($background-color: $background-color)
+    +label-common($background-color: $c-accent-red-medium)
 
   &_color_accent-yellow-medium
-    $background-color: $c-accent-yellow-medium
-    +label-common($background-color: $background-color)
+    +label-common($background-color: $c-accent-yellow-medium)
 
   &_color_accent-green-medium
-    $background-color: $c-accent-green-medium
-    +label-common($background-color: $background-color)
+    +label-common($background-color: $c-accent-green-medium)
 
   &_color_accent-purple-medium
-    $background-color: $c-accent-purple-medium
-    +label-common($background-color: $background-color)
+    +label-common($background-color: $c-accent-purple-medium)
 
   &_color_accent-pink-medium
-    $background-color: $c-accent-pink-medium
-    +label-common($background-color: $background-color)
+    +label-common($background-color: $c-accent-pink-medium)
+
+  &_color_gray-medium
+    +label-common($background-color: $c-gray-light)
 
 
   // Border modifiers
+  &_border_accent-blue
+    +label-bordered($color: $c-accent-blue, $bg-color: transparent, $border-color: $c-accent-blue)
+
+  &_border_accent-red
+    +label-bordered($color: $c-accent-red, $bg-color: transparent, $border-color: $c-accent-red)
+
+  &_border_accent-yellow
+    +label-bordered($color: $c-accent-yellow, $bg-color: transparent, $border-color: $c-accent-yellow)
+
+  &_border_accent-green
+    +label-bordered($color: $c-accent-green, $bg-color: transparent, $border-color: $c-accent-green)
+
+  &_border_accent-purple
+    +label-bordered($color: $c-accent-purple, $bg-color: transparent, $border-color: $c-accent-purple)
+
+  &_border_accent-pink
+    +label-bordered($color: $c-accent-pink, $bg-color: transparent, $border-color: $c-accent-pink)
+
+  &_border_gray
+    +label-bordered($color: $c-gray-medium, $bg-color: transparent, $border-color: $c-gray-medium)
+
+
   &_border_accent-blue-medium
-    +label-bordered($color: $c-gray-dark, $bg-color: transparent, $border-color: $c-accent-blue-medium)
+    +label-bordered($color: $c-accent-blue-medium, $bg-color: transparent, $border-color: $c-accent-blue-medium)
 
   &_border_accent-red-medium
-    +label-bordered($color: $c-gray-dark, $bg-color: transparent, $border-color: $c-accent-red-medium)
+    +label-bordered($color: $c-accent-red-medium, $bg-color: transparent, $border-color: $c-accent-red-medium)
 
   &_border_accent-yellow-medium
-    +label-bordered($color: $c-gray-dark, $bg-color: transparent, $border-color: $c-accent-yellow-medium)
+    +label-bordered($color: $c-accent-yellow-medium, $bg-color: transparent, $border-color: $c-accent-yellow-medium)
 
   &_border_accent-green-medium
-    +label-bordered($color: $c-gray-dark, $bg-color: transparent, $border-color: $c-accent-green-medium)
+    +label-bordered($color: $c-accent-green-medium, $bg-color: transparent, $border-color: $c-accent-green-medium)
 
   &_border_accent-purple-medium
-    +label-bordered($color: $c-gray-dark, $bg-color: transparent, $border-color: $c-accent-purple-medium)
+    +label-bordered($color: $c-accent-purple-medium, $bg-color: transparent, $border-color: $c-accent-purple-medium)
 
   &_border_accent-pink-medium
-    +label-bordered($color: $c-gray-dark, $bg-color: transparent, $border-color: $c-accent-pink-medium)
+    +label-bordered($color: $c-accent-pink-medium, $bg-color: transparent, $border-color: $c-accent-pink-medium)
+
+  &_border_gray-medium
+    +label-bordered($color: $c-gray-light, $bg-color: transparent, $border-color: $c-gray-light)
 
 
 

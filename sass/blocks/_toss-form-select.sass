@@ -297,6 +297,10 @@ $block: ".toss-form-select"
     padding-right: 10px
     color: $c-text-faded
 
+  &#{&}_state_error .Select-placeholder,
+  &#{&}_state_error .Select--single > .Select-control .Select-value
+    color: $c-accent-red
+
   & .has-value.Select--single > .Select-control .Select-value .Select-value-label,
   & .has-value.is-pseudo-focused.Select--single > .Select-control .Select-value .Select-value-label
     color: $c-text-primary

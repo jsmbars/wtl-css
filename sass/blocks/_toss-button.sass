@@ -174,6 +174,12 @@ $block: ".toss-button"
   &_type_no-behavior
     cursor: default !important
 
+  &_adjust_field
+    margin-top: 25px
+
+    @media screen and (max-width: 960px)
+      margin-top: 0
+
 
   // $Common button text
   &__text
@@ -264,6 +270,10 @@ $block: ".toss-button"
   &_icon_refresh
     +button-with-icon-left($icon: '\e906')
 
+  // $Common button MOD: icon text-paper
+  &_icon_text-paper
+    +button-with-icon-left($icon: '\e927', $size: 14px)
+
   // $Common button MOD: icon pencil
   &_icon_pencil
     +button-with-icon-left($icon: '\e91d', $size: 14px)
@@ -279,6 +289,10 @@ $block: ".toss-button"
   // $Common button MOD: icon copy
   &_icon_copy
     +button-with-icon-left($icon: '\e92c', $size: 16px)
+
+  // $Common button MOD: icon power
+  &_icon_power
+    +button-with-icon-left($icon: '\e907', $size: 16px)
 
 
   // Specific buttons

@@ -83,6 +83,14 @@ $block: ".toss-modal"
     margin-top: 200px
     margin-bottom: 200px
 
+    @media screen and (max-width: 640px), screen and (max-height: 640px)
+      margin-top: 100px
+      margin-bottom: 100px
+
+    @media screen and (max-width: 480px), screen and (max-height: 480px)
+      margin-top: 50px
+      margin-bottom: 50px
+
   &_type_full-height
     display: flex
     flex-direction: column
@@ -122,6 +130,9 @@ $block: ".toss-modal"
     cursor: pointer
     outline: none
 
+    @media screen and (max-width: 480px), screen and (max-height: 480px)
+      top: 10px
+
     &:after
       content: '\e91e'
       font-family: 'icons'
@@ -147,7 +158,7 @@ $block: ".toss-modal"
     position: relative
     width: 100%
     padding: 30px 20px
-    background-color: $c-gray-ultra-light
+    background-color: $c-gray-hyper-light
 
     #{$block}_type_full-height &
       flex-grow: 0
@@ -268,11 +279,20 @@ $block: ".toss-modal"
     max-width: 200px
     margin-bottom: 20px
 
+    @media screen and (max-width: 480px), screen and (max-height: 480px)
+      max-width: 150px
+
     &_size_s
       max-width: 150px
 
+      @media screen and (max-width: 480px), screen and (max-height: 480px)
+        max-width: 100px
+
     &_size_l
       max-width: 250px
+
+      @media screen and (max-width: 480px), screen and (max-height: 480px)
+        max-width: 200px
 
 
   // $Modal window title
@@ -283,15 +303,6 @@ $block: ".toss-modal"
     font-weight: 400
     color: $c-text-primary
 
-    &_size_s
-      font-size: 20px
-
-    &_size_l
-      font-size: 28px
-
-    &:not(:last-child)
-      margin-bottom: 20px
-
     #{$block}__header_color_accent-red &,
     #{$block}__header_color_accent-green &,
     #{$block}__header_color_accent-blue &,
@@ -299,6 +310,15 @@ $block: ".toss-modal"
     #{$block}__header_color_accent-purple &,
     #{$block}__header_color_accent-pink &
       color: $c-text-light
+
+    &:not(:last-child)
+      margin-bottom: 20px
+
+    &_size_s
+      font-size: 20px
+
+    &_size_l
+      font-size: 28px
 
 
   // $Modal window title bold
@@ -311,6 +331,14 @@ $block: ".toss-modal"
     font-weight: 300
 
 
+  // $Modal window title wrap
+  &__title-wrap
+    overflow-wrap: break-word
+    word-wrap: break-word
+    word-break: break-word
+    hyphens: auto
+
+
   // $Modal window subtitle
   &__subtitle
     font-family: $f-sans
@@ -321,6 +349,12 @@ $block: ".toss-modal"
 
     &:not(:last-child)
       margin-bottom: 20px
+
+    &_size_s
+      font-size: 18px
+
+    &_size_l
+      font-size: 22px
 
 
   // $Modal window subtitle bold
@@ -341,6 +375,14 @@ $block: ".toss-modal"
       margin-bottom: 5px
 
 
+  // $Modal window subtitle wrap
+  &__subtitle-wrap
+    overflow-wrap: break-word
+    word-wrap: break-word
+    word-break: break-word
+    hyphens: auto
+
+
   // $Modal window text
   &__text
     font-family: $f-sans
@@ -348,6 +390,14 @@ $block: ".toss-modal"
     line-height: 1.5
     color: $c-text-primary
     font-weight: 500
+
+
+  // $Modal window text wrap
+  &__text-wrap
+    overflow-wrap: break-word
+    word-wrap: break-word
+    word-break: break-word
+    hyphens: auto
 
 
   // $Modal window link
