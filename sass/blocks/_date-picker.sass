@@ -1,0 +1,381 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Date picker
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".date-picker"
+
+#{$block}
+
+  // Date picker input styles
+  @at-root
+    .date-picker-input
+      display: block
+      width: 100%
+
+      &_size_min
+        min-width: 130px
+
+      &_type_icon
+        position: relative
+
+        &:before
+          content: "\e900"
+          position: absolute
+          top: 50%
+          left: 10px
+          z-index: 1
+          display: block
+          font-family: icons
+          font-size: 18px
+          line-height: 1
+          color: $c-text-secondary
+          transform: translateY(-50%)
+
+        & .date-picker-input-field
+          min-width: 150px
+          padding-left: 35px
+
+      &_type_inline
+        margin-top: -2px
+
+        & input,
+        & .date-picker-input-field
+          height: 25px
+          line-height: 25px
+          padding: 0 10px
+
+      &_state_error input,
+      &_state_error .date-picker-input-field
+        border: 1px solid $c-accent-red !important
+
+      &_state_error input:focus
+        box-shadow: 0 0 5px 0 $c-accent-red !important
+
+      &_state_error#{&}_type_icon
+        &:before
+          color: $c-accent-red
+
+      & input
+        display: block
+        min-width: 120px
+        width: 100%
+        height: 50px
+        font-family: $f-sans
+        font-size: 14px
+        color: $c-text-primary
+        font-weight: 400
+        line-height: 50px
+        box-sizing: border-box
+        background-color: $c-bg-light
+        border: 1px solid $c-border-primary
+        padding: 0 20px
+        border-radius: 2px
+        box-shadow: none
+
+        &:focus
+          outline: none
+          box-shadow: 0 0 3px -1px $c-accent-blue
+          border-color: $c-border-primary
+
+        &[type=text]::-ms-clear
+          display: none
+
+        &[readonly]
+          background-color: $c-bg-light
+          cursor: text
+
+        ::-webkit-input-placeholder
+          color: $c-text-faded
+          opacity:  1 !important
+
+        :-moz-placeholder
+          color: $c-text-faded
+          opacity:  1 !important
+
+        ::-moz-placeholder
+          color: $c-text-faded
+          opacity:  1 !important
+
+        :-ms-input-placeholder
+          color: $c-text-faded
+          opacity:  1 !important
+
+        :placeholder-shown
+          color: $c-text-faded
+          opacity:  1 !important
+
+
+    .date-picker-input_type_inline.date-picker-input_type_icon
+      &:before
+        right: 10px
+        width: 14px
+        height: 14px
+        margin-top: -6px
+
+
+    .date-picker-input-field
+      display: block
+      min-width: 120px
+      width: 100%
+      font-family: $f-sans
+      font-size: 14px
+      color: $c-text-primary
+      font-weight: 400
+      height: 50px
+      box-sizing: border-box
+      background-color: $c-bg-light
+      line-height: 50px
+      border: 1px solid $c-border-primary
+      padding: 0 20px
+      border-radius: 2px
+      cursor: text
+
+      &_state_error
+        outline: 1px solid $c-accent-red
+
+
+  // Date picker direct overrides
+  @at-root
+    .react-datepicker__portal
+      z-index: 11000
+      background-color: rgba(0, 0, 0, .75)
+
+    .react-datepicker__input-container
+      display: block
+      width: 100%
+
+  // React-datepicker styles
+  &.react-datepicker
+    border-radius: 3px
+    border-color: $c-border-primary
+
+
+    & .react-datepicker__triangle
+      border-bottom-color: $c-border-light
+
+      &:before
+        border-bottom-color: $c-border-primary
+
+      @at-root .react-datepicker__tether-element-attached-top &
+        border-bottom-color: $c-border-light
+
+        &:before
+          border-bottom-color: $c-border-primary
+
+      @at-root .react-datepicker__tether-element-attached-bottom &
+        border-top-color: $c-border-light
+        outline: 1px
+
+        &:before
+          border-top-color: $c-border-primary
+
+
+    & .react-datepicker__header
+      background-color: $c-bg-light
+      border-bottom: none
+
+
+    & .react-datepicker__current-month
+      padding: 10px
+      font-family: $f-sans
+      font-size: 14px
+      color: $c-text-primary
+      font-weight: 400
+      line-height: 1.5
+      text-align: center
+
+
+    & .react-datepicker__navigation
+      top: 20px
+      display: block
+      width: 15px
+      height: 15px
+      border: none
+
+      &:before
+        content: ""
+        position: absolute
+        top: 0
+        z-index: 1
+        display: block
+        font-family: icons
+        font-size: 24px
+        line-height: 15px
+        color: $c-text-secondary
+
+      &--previous
+        left: 20px
+
+        &:before
+          content: "\e91c"
+          left: 0
+
+      &--next
+        right: 20px
+
+        &:before
+          content: "\e91b"
+          right: 0
+
+      &--hidden
+        display: none
+
+
+    & .react-datepicker__overlay
+      position: absolute
+      top: 65px
+      right: 0
+      bottom: 0
+      left: 0
+      z-index: 100
+      display: flex
+      flex-direction: column
+      justify-content: center
+      align-items: center
+      background-color: rgba(0, 0, 0, .7)
+
+      &--hidden
+        display: none
+
+    & .react-datepicker__overlay-text
+      width: 100%
+      max-width: 200px
+      padding-bottom: 40px
+      font-family: $f-sans
+      font-size: 14px
+      font-weight: 400
+      font-size: 24px
+      text-align: center
+      color: $c-text-light
+
+    & .react-datepicker__month
+      position: relative
+      z-index: 1
+      margin: 0
+      padding: 0 10px 10px
+
+      &:before
+        content: ''
+        z-index: -1
+        position: absolute
+        top: -50px
+        right: 0
+        left: 0
+        display: block
+        height: 100px
+        box-shadow: inset 0 60px 60px -60px rgba(0, 0, 0, .15)
+
+      &--inactive
+        opacity: .35
+
+
+    & .react-datepicker__week
+      white-space: nowrap
+
+
+    & .react-datepicker__month-select,
+    & .react-datepicker__year-select
+      height: 40px
+      margin: 5px 0 15px
+      padding: 0 25px 0 10px
+      font-family: $f-sans
+      font-size: 14px
+      color: $c-text-primary
+      font-weight: 400
+      line-height: 1.5
+      -webkit-appearance: none
+      -moz-appearance: none
+      border: 1px solid $c-border-primary
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' width='32' height='24' viewBox='0 0 32 24'><polygon points='0,0 32,0 16,24' style='fill: rgb%28138, 138, 138%29'></polygon></svg>")
+      background-size: 9px 6px
+      background-position: right -1rem center
+      background-origin: content-box
+      background-repeat: no-repeat
+
+
+    & .react-datepicker__week-number
+      width: 40px
+      padding: 10px 0
+      font-family: $f-sans
+      font-size: 14px
+      color: $c-text-primary
+      font-weight: 400
+      line-height: 1.5
+      text-align: center
+
+
+    & .react-datepicker__day-names
+      padding-top: 10px
+
+      &--inactive
+        opacity: .35
+
+
+    & .react-datepicker__day-name
+      width: 40px
+      margin: 0
+      padding: 10px 0
+      font-family: $f-sans
+      font-size: 14px
+      color: $c-text-primary
+      font-weight: 400
+      line-height: 1.5
+      font-weight: 600
+      text-align: center
+
+
+    & .react-datepicker__day
+      width: 40px
+      margin: 0
+      padding: 10px 0
+      font-family: $f-sans
+      font-size: 14px
+      color: $c-text-primary
+      font-weight: 400
+      line-height: 1.5
+      text-align: center
+
+      &:hover
+        border-radius: 0
+        background-color: $c-accent-green
+        color: $c-text-light
+
+      &--today
+        font-weight: 400
+
+      &--highlighted,
+      &--selected,
+      &--in-selecting-range,
+      &--in-range,
+      &--keyboard-selected
+        border-radius: 0
+        background-color: $c-accent-green
+        color: $c-text-light
+
+        &:hover
+          background-color: darken($c-accent-green, 5%)
+
+      &--disabled
+        cursor: default;
+        color: $c-text-faded
+        background-color: transparent
+
+        &:hover
+          background-color: transparent
+          color: $c-text-faded
+
+      &--outside-month
+        color: $c-text-faded
+
+        &:hover
+          color: $c-text-light
