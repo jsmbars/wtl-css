@@ -27,6 +27,7 @@ $block: ".date-picker"
 
       &_type_icon
         position: relative
+        min-width: 150px
 
         &:before
           content: "\e900"
@@ -41,18 +42,10 @@ $block: ".date-picker"
           color: $c-text-secondary
           transform: translateY(-50%)
 
+        & input,
         & .date-picker-input-field
           min-width: 150px
           padding-left: 35px
-
-      &_type_inline
-        margin-top: -2px
-
-        & input,
-        & .date-picker-input-field
-          height: 25px
-          line-height: 25px
-          padding: 0 10px
 
       &_state_error input,
       &_state_error .date-picker-input-field
@@ -113,14 +106,6 @@ $block: ".date-picker"
         :placeholder-shown
           color: $c-text-faded
           opacity:  1 !important
-
-
-    .date-picker-input_type_inline.date-picker-input_type_icon
-      &:before
-        right: 10px
-        width: 14px
-        height: 14px
-        margin-top: -6px
 
 
     .date-picker-input-field
