@@ -57,6 +57,10 @@
     font-weight: normal
     vertical-align: middle
 
+  &:empty
+    &:before
+      margin-right: 0
+
   &:hover
     &:before
       color: $icon-hover-color
@@ -78,6 +82,10 @@
     color: $icon-color
     font-weight: normal
     vertical-align: middle
+
+  &:empty
+    &:after
+      margin-left: 0
 
   &:hover
     &:after
@@ -124,25 +132,43 @@ $block: ".toss-button"
   &_size_xl
     padding: 17px 35px
 
+    &:empty
+      padding: 17px
+
   // $Common button MOD: size large
   &_size_l
     padding: 15px 30px
+
+    &:empty
+      padding: 15px
 
   // $Common button MOD: size medium
   &_size_m
     padding: 12px 25px
 
+    &:empty
+      padding: 12px
+
   // $Common button MOD: size small
   &_size_s
     padding: 10px 20px
+
+    &:empty
+      padding: 10px
 
   // $Common button MOD: size extra small
   &_size_xs
     padding: 7px 15px
 
+    &:empty
+      padding: 7px
+
   // $Common button MOD: size 2 extra small
   &_size_xxs
     padding: 5px 10px
+
+    &:empty
+      padding: 5px
 
   // $Common button MOD: space left
   &_space_left
